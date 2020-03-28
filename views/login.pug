@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  title= title
+  div(class="esim") #{Translate.url('/forgot-password')}
+  div(class="container m-t-md")
+    if message
+      .row.text-center
+        span.green #{message}
+
+    if error
+      div(class="row error_mrg")
+        div(class="col-sm-offset-3 col-sm-6 text-center")
+          span(class="red")
+              span #{error}
+
+    div(class="jumbotron row" style="background-color: #f9f9f9; border-color: #eee; border-style: solid")
+      div(class="col-lg-3 col-lg-offset-3 col-sm-offset-0 col-sm-6 col-xs-12 col-xs-offset-0")
+        form(class="form" action=Translate.url('/login') role="form" method="POST" autocomplete="off")
+          fieldset(class="form-group")
+            input(type="email" required="" name="email" value="" class="form-control" placeholder= __('Email Address'))
+          fieldset(class="form-group")
+            input(type="password" class="form-control" placeholder= __('Password') name="password")
+          div(class="checkbox")
+            label
+              span(class="custom-checkbox")
+                input(type="checkbox" name="user_check")
+                span #{ __('Remember me') }
+          div
+            a(href=Translate.url("/forgot-password")) #{ __('Forgot password') }
+          div(class="text-right")
+            input(type="submit" class="col-xs-12 col-md-5 btn btn-success pull-right" value= __('Login'))
+        div(class="vert_line hidden-xs-down")
+      div(class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center")
+        div(class="hidden-sm-up" style="margin-top: 15px;")
+        a(class="col-xs-12 btn btn-facebook" href=Translate.url('/login/facebook')) Log in with facebook
+        div(class="promo_text text-left") <br>
+          a(href=Translate.url('/signup')) #{ __('Sign Up') }

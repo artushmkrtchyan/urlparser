@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  div(class="container m-t-md")
+    div(class="row error_mrg")
+      div(class="col-sm-offset-3 col-sm-6 text-center")
+        if (message)
+          div(class="alert alert-info") #{message}
+    div(class="jumbotron row" style="background-color: #f9f9f9; padding: 30px; border-color: #eee; border-style: solid")
+      .col-md-12.text-center
+        h2 #{ __('Sign UP for FREE') }
+        h4 #{ __('No credit card required.') }
+        p  
+      div(class="col-lg-3 col-lg-offset-3 col-sm-offset-0 col-sm-6 col-xs-12 col-xs-offset-0")
+          form(id="myform" class="form" action=Translate.url('/signup') role="form" method="POST" )
+            fieldset(class="form-group")
+              input(type="text" required="" name="first_name" value="" class="form-control" placeholder= __('First name'))
+            fieldset(class="form-group")
+              input(type="email" required="" name="email" value="" class="form-control" placeholder= __('Email Address'))
+            fieldset(class="form-group")
+              input(id="myPassword" type="password" class="form-control" placeholder= __('Password') name="password")
+            fieldset(class="form-group")
+              input(type="password" class="form-control" placeholder=__('Confirm Password')  name="re_password")
+            div(class="checkbox")
+              label
+                input(type="checkbox" name="user_check" required="" value="1")
+                span #{ __('I accept ') }
+                a(href=Translate.url('/terms-of-service') target="_blank" tabindex="100") #{ __('terms of service') }
+            div(class="text-right")
+              input(type="submit" class="col-xs-12 col-md-5 btn btn-success pull-right" name="user_signup" value="SIGN UP")
+          div(class="vert_line hidden-xs-down")
+      div(class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center")
+        div(class="hidden-sm-up" style="margin-top: 15px;")
+        a(class="col-xs-12 btn btn-facebook" href=Translate.url('/login/facebook')) #{ __('Log in with facebook') }
+        div(class="promo_text text-left") #{ __("Hotels is ultimate all in one platform for building your videos online using built in advanced tools. Whether its a slideshow video, logo animation or promotional video, we're here to create a special video for you") } <br>
+          a(href=Translate.url('/signin')) #{ __('Sign In') }
+      .col-md-12.text-center(style="position: initial")
+        p  
+        span #{ __('* We will not provide your information to any third party and will never sell it.') }

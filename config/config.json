@@ -1,0 +1,18 @@
+{
+    "development": {
+        "WebsiteUrl": {
+            "host":"***",
+            "url": "****",
+            "domain": "*****"
+        },
+           "redis": {
+            "port": "***",
+            "host": "*****",
+            "password":"*****"
+        },
+        "pgConnectionString": "***********"
+    },
+    "production": {
+
+    }
+}

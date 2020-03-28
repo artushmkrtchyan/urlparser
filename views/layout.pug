@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    each media_style in ScriptConf.vendor.css
+      link(rel='stylesheet', href=media_style + '.css')
+  body
+      block content
+      include footer.pug

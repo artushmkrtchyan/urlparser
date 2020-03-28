@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	div(class="container m-t-md")
+
+		div(class="row error_mrg")
+			div(class="col-sm-offset-3 col-sm-6 text-center")
+				span(class="red") 
+					if (message) 
+						span #{message}
+		div(class="row")
+			div(class="col-sm-offset-4 col-sm-4")
+				div(class="row text-center") #{__("Enter your email address and we'll send you a link to reset your password.")}<br>
+				form(class="signup_form row" action="forgot-password" role="form" method="POST")
+					input(type="email" required="" name="user_email" value="" class="up_in icn_em col-sm-12" placeholder= __('Email Address'))
+					input(type="submit" class="btn btn-success col-sm-12" style="margin-left: 0;" name="send_email" value= __('Send to email'))
